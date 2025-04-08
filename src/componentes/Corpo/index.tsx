@@ -1,10 +1,25 @@
-interface PostProps {
-    title: string;
-    content: string;
-    author: string;
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+
+interface IPostProps {
+    titulo: string;
+    conteudo: string;
+    autor: string;
 }
 
-export const CorpoPrincipal = ({ posts = [] }: { posts: PostProps[] }) => {
+export const CorpoPrincipal = () => {
+    const [posts, setPosts] = useState<IPostProps[]>([]);
+    useEffect(() => {
+        axios.get<IPostProps[]>('/api/posts/')
+            .then((response) => {
+                setPosts(response.data);
+            })
+            .catch((error) => {
+                console.error("Erro ao buscar os posts:", error);
+            })
+    }, []);
+
+
     return (
         <div className="container">
             <h1>Corpo Principal</h1>
@@ -14,25 +29,25 @@ export const CorpoPrincipal = ({ posts = [] }: { posts: PostProps[] }) => {
     );
 }
 
-export const Post = (post: PostProps) => {
+export const Post = (post: IPostProps) => {
     return (
         <div className="post">
-            <h2>{post.title}</h2>
-            <p>{post.content}</p>
-            <p><strong>Autor:</strong> {post.author}</p>
+            <h2>{post.titulo}</h2>
+            <p>{post.conteudo}</p>
+            <p><strong>Autor:</strong> {post.autor}</p>
         </div>
     );
 }
 
-export const ListaDePosts = ({ posts = [] }: { posts: PostProps[] }) => {
+export const ListaDePosts = ({ posts }: { posts: IPostProps[] }) => {
     return (
         <div className="lista-de-posts">
             {posts.map((post, index) => (
                 <Post
                     key={index}
-                    title={post.title}
-                    content={post.content}
-                    author={post.author}
+                    titulo={post.titulo}
+                    conteudo={post.conteudo}
+                    autor={post.autor}
                 />
             ))}
         </div>
