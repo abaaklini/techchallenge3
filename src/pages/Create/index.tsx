@@ -1,8 +1,7 @@
 import EstilosGlobais from "../../componentes/EstilosGlobais"
 import Cabecalho from "../../componentes/Cabecalho"
 import Rodape from "../../componentes/Rodape"
-import { CorpoPrincipal } from "../../componentes/Corpo"
-import conteudo from "../../json/db.json"
+import CreateForm from "../../componentes/Formulario"
 
 function Create() {
 
@@ -10,7 +9,7 @@ function Create() {
         <>
             <EstilosGlobais />
             <Cabecalho />
-            <CorpoPrincipal posts={conteudo} />
+            <CreateForm />
             <Rodape />
         </>
     )

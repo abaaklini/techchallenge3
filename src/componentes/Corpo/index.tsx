@@ -5,6 +5,7 @@ interface IPostProps {
     titulo: string;
     conteudo: string;
     autor: string;
+    id: string;
 }
 
 export const CorpoPrincipal = () => {
@@ -48,6 +49,7 @@ export const ListaDePosts = ({ posts }: { posts: IPostProps[] }) => {
                     titulo={post.titulo}
                     conteudo={post.conteudo}
                     autor={post.autor}
+                    id={post.id}
                 />
             ))}
         </div>
