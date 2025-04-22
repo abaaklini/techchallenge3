@@ -1,20 +1,4 @@
-import { styled } from "styled-components";
-
-const HeaderEstilizado = styled.header`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-`;
-
-const TitleEstilizado = styled.h1`
-    font-size: 2.5rem;
-    color: rgba(105, 112, 119, 1);
-    line-height: 110px;
-    text-align: center;
-    margin: 20px 0;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 700;
-`;
+import Button from '@mui/material/Button';
 
 const isLoggedIn = false; // Simulação de estado de login
 
@@ -39,7 +23,7 @@ const CampoDeBusca = () => {
 const AcessoProfessor = () => {
     return (
         <div>
-            <button>Área do Professor</button>
+            <Button variant="contained">Área do Professor</Button>
         </div>
     );
 }
@@ -47,21 +31,17 @@ const AcessoProfessor = () => {
 const Cabecalho = () => {
     return (
         <>
-            <HeaderEstilizado>
-                <TitleEstilizado>
-                    Blog da Turma
-                </TitleEstilizado>
+            Blog da Turma
+            <div>
                 <div>
-                    <div>
-                        {isLoggedIn ? (
-                            <AcessoProfessor />
-                        ) : (
-                            <LoginForm />
-                        )}
-                    </div>
-                    <CampoDeBusca />
+                    {isLoggedIn ? (
+                        <AcessoProfessor />
+                    ) : (
+                        <LoginForm />
+                    )}
                 </div>
-            </HeaderEstilizado>
+                <CampoDeBusca />
+            </div>
 
         </>
     );
