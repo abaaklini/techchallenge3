@@ -1,11 +1,13 @@
 import { Button, TextField } from "@mui/material";
 import axios from "axios";
 import { useState } from "react";
+import Alert from '@mui/material/Alert';
 
 const FormularioPosts = () => {
     const [titulo, setTitulo] = useState<string>("");
     const [conteudo, setConteudo] = useState<string>("");
     const [autor, setAutor] = useState<string>("");
+    const [sucesso, setSucesso] = useState<boolean>(false);
 
     const handleSubmit = (evento: React.FormEvent<HTMLFormElement>) => {
         evento.preventDefault();
@@ -15,6 +17,7 @@ const FormularioPosts = () => {
             autor: autor
         })
             .then((response) => {
+                setSucesso(true);
                 console.log("Post criado com sucesso:", response.data);
             })
             .catch((error) => {
@@ -44,6 +47,11 @@ const FormularioPosts = () => {
                     fullWidth margin="normal" />
                 <Button type="submit" variant="contained" color="primary">Criar Post</Button>
             </form>
+            {sucesso && (
+                <Alert severity="success" style={{ marginTop: '20px' }}>
+                    Post criado com sucesso!
+                </Alert>
+            )}
         </div>
     );
 }
