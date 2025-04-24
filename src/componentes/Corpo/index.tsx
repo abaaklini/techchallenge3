@@ -33,7 +33,7 @@ export const CorpoPrincipal = () => {
 
 export const Post = (post: IPostProps) => {
     return (
-        <TableRow>
+        <TableRow key={post.id}>
             <TableCell>
                 {post.titulo}
             </TableCell>
