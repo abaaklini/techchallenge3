@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
+import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
+import { Link } from 'react-router';
 
 interface IPostProps {
     titulo: string;
     conteudo: string;
     autor: string;
-    id: string;
+    _id: string;
 }
 
 export const CorpoPrincipal = () => {
@@ -53,7 +54,7 @@ export const CorpoPrincipalDashboard = () => {
 
 export const Post = (post: IPostProps) => {
     return (
-        <TableRow key={post.id}>
+        <TableRow key={post._id}>
             <TableCell>
                 {post.titulo}
             </TableCell>
@@ -62,6 +63,11 @@ export const Post = (post: IPostProps) => {
             </TableCell>
             <TableCell>
                 {post.autor}
+            </TableCell>
+            <TableCell>
+                <Link to={`/dashboard/posts/${post._id}`}>
+                    <Button variant="contained" color="primary">Editar</Button>
+                </Link>
             </TableCell>
         </TableRow>
     )
@@ -77,6 +83,7 @@ export const ListaDePosts = ({ posts }: { posts: IPostProps[] }) => {
                             <TableCell>Título</TableCell>
                             <TableCell>Conteúdo</TableCell>
                             <TableCell>Autor</TableCell>
+                            <TableCell>Editar</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -86,7 +93,7 @@ export const ListaDePosts = ({ posts }: { posts: IPostProps[] }) => {
                                 titulo={post.titulo}
                                 conteudo={post.conteudo}
                                 autor={post.autor}
-                                id={post.id}
+                                _id={post._id}
                             />
                         ))}
                     </TableBody>

@@ -28,6 +28,7 @@ createRoot(document.getElementById('root')!).render(
           <Route path="/read" element={<Read />} />
           <Route path="/dashboard/posts" element={<Dashboard />} />
           <Route path="/dashboard/posts/new" element={<Create />} />
+          <Route path="/dashboard/posts/:id" element={<Create />} />
         </Routes>
       </BrowserRouter>
     </StrictMode>
