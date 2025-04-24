@@ -47,12 +47,29 @@ export const CorpoPrincipalDashboard = () => {
     return (
         <div className="container">
             <h1>Dashboard</h1>
-            <ListaDePosts posts={posts} />
+            <ListaDePostsDashboard posts={posts} />
         </div>
     );
 }
 
 export const Post = (post: IPostProps) => {
+
+    return (
+        <TableRow key={post._id}>
+            <TableCell>
+                {post.titulo}
+            </TableCell>
+            <TableCell>
+                {post.conteudo}
+            </TableCell>
+            <TableCell>
+                {post.autor}
+            </TableCell>
+        </TableRow>
+    )
+}
+
+export const PostDashboard = (post: IPostProps) => {
 
     const excluir = (post: IPostProps) => {
         if (window.confirm("Você tem certeza que deseja excluir este post?")) {
@@ -100,13 +117,42 @@ export const ListaDePosts = ({ posts }: { posts: IPostProps[] }) => {
                             <TableCell>Título</TableCell>
                             <TableCell>Conteúdo</TableCell>
                             <TableCell>Autor</TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        {posts.map((post, index) => (
+                            <Post
+                                key={index}
+                                titulo={post.titulo}
+                                conteudo={post.conteudo}
+                                autor={post.autor}
+                                _id={post._id}
+                            />
+                        ))}
+                    </TableBody>
+                </Table>
+            </TableContainer>
+        </div>
+    );
+}
+
+export const ListaDePostsDashboard = ({ posts }: { posts: IPostProps[] }) => {
+    return (
+        <div className="lista-de-posts">
+            <TableContainer component={Paper}>
+                <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                    <TableHead>
+                        <TableRow>
+                            <TableCell>Título</TableCell>
+                            <TableCell>Conteúdo</TableCell>
+                            <TableCell>Autor</TableCell>
                             <TableCell>Editar</TableCell>
                             <TableCell>Excluir</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
                         {posts.map((post, index) => (
-                            <Post
+                            <PostDashboard
                                 key={index}
                                 titulo={post.titulo}
                                 conteudo={post.conteudo}
