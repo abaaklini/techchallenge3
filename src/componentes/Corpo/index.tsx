@@ -24,8 +24,28 @@ export const CorpoPrincipal = () => {
 
     return (
         <div className="container">
-            <h1>Corpo Principal</h1>
-            <p>Este é o corpo principal do aplicativo.</p>
+            <h1>Página Principal</h1>
+            <ListaDePosts posts={posts} />
+        </div>
+    );
+}
+
+export const CorpoPrincipalDashboard = () => {
+    const [posts, setPosts] = useState<IPostProps[]>([]);
+    useEffect(() => {
+        axios.get<IPostProps[]>('/api/posts/')
+            .then((response) => {
+                setPosts(response.data);
+            })
+            .catch((error) => {
+                console.error("Erro ao buscar os posts:", error);
+            })
+    }, []);
+
+
+    return (
+        <div className="container">
+            <h1>Dashboard</h1>
             <ListaDePosts posts={posts} />
         </div>
     );

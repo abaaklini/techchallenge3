@@ -1,13 +1,13 @@
 import Cabecalho from "../../componentes/Cabecalho"
 import Rodape from "../../componentes/Rodape"
-import { CorpoPrincipal } from "../../componentes/Corpo"
+import { CorpoPrincipalDashboard } from "../../componentes/Corpo"
 
 function Dashboard() {
 
     return (
         <>
             <Cabecalho />
-            <CorpoPrincipal />
+            <CorpoPrincipalDashboard />
             <Rodape />
         </>
     )

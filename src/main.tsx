@@ -5,6 +5,8 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import App from './pages/Home/index.tsx'
 import Read from './pages/Read/index.tsx'
+import Dashboard from './pages/Dashboard/index.tsx';
+import Create from './pages/Create/index.tsx';
 
 const theme = createTheme({
   palette: {
@@ -24,6 +26,8 @@ createRoot(document.getElementById('root')!).render(
         <Routes>
           <Route path="/" element={<App />} />
           <Route path="/read" element={<Read />} />
+          <Route path="/dashboard/posts" element={<Dashboard />} />
+          <Route path="/dashboard/posts/new" element={<Create />} />
         </Routes>
       </BrowserRouter>
     </StrictMode>

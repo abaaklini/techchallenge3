@@ -1,13 +1,13 @@
 import Cabecalho from "../../componentes/Cabecalho"
 import Rodape from "../../componentes/Rodape"
-import CreateForm from "../../componentes/Formulario"
+import FormularioPosts from "../../componentes/Formulario/FormularioPosts"
 
 function Create() {
 
     return (
         <>
             <Cabecalho />
-            <CreateForm />
+            <FormularioPosts />
             <Rodape />
         </>
     )
