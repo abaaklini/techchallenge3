@@ -1,14 +1,14 @@
-import Cabecalho from "../../componentes/Cabecalho"
 import Rodape from "../../componentes/Rodape"
 import { CorpoPrincipalDashboard } from "../../componentes/Corpo"
 import { Box } from "@mui/material"
+import SearchAppBar from "../../componentes/Cabecalho/SearchAppBar"
 
 function Dashboard() {
 
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
             <Box sx={{ flexGrow: 1 }}>
-                <Cabecalho />
+                <SearchAppBar />
                 <CorpoPrincipalDashboard />
             </Box>
             <Box sx={{ flexShrink: 0 }}>

@@ -1,11 +1,11 @@
-import Cabecalho from "../../componentes/Cabecalho"
+import SearchAppBar from "../../componentes/Cabecalho/SearchAppBar"
 import Rodape from "../../componentes/Rodape"
 
 function Read() {
 
     return (
         <>
-            <Cabecalho />
+            <SearchAppBar />
             <Rodape />
         </>
     )

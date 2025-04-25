@@ -1,12 +1,12 @@
-import Cabecalho from "../../componentes/Cabecalho"
 import Rodape from "../../componentes/Rodape"
 import FormularioPosts from "../../componentes/Formulario/FormularioPosts"
+import SearchAppBar from "../../componentes/Cabecalho/SearchAppBar"
 
 function Create() {
 
     return (
         <>
-            <Cabecalho />
+            <SearchAppBar />
             <FormularioPosts />
             <Rodape />
         </>
