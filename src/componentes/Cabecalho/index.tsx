@@ -5,28 +5,29 @@ const isLoggedIn = false; // Simulação de estado de login
 
 const LoginForm = () => {
     return (
-        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <Box component={'form'} sx={{ display: 'flex', alignItems: 'center' }}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'stretch' }}>
+            <Box component={'form'} sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
                 <TextField
                     label="Usuário"
                     variant="outlined"
                     required
-                    fullWidth
                     margin="normal"
-                    sx={{ marginBottom: 2 }}
+                    size="small"
+                    sx={{ marginRight: 2 }}
                 />
                 <TextField
                     label="Senha"
                     variant="outlined"
                     type="password"
                     required
-                    fullWidth
                     margin="normal"
-                    sx={{ marginBottom: 2 }}
+                    size="small"
+                    sx={{ marginRight: 2 }}
                 />
                 <Button
                     variant="contained"
                     color="primary"
+                    sx={{ marginRight: 2 }}
                     type="submit">
                     Entrar
                 </Button>
