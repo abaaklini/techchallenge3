@@ -1,4 +1,4 @@
-import { Button, TextField } from "@mui/material";
+import { Box, Button, TextField, Typography } from "@mui/material";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Alert from '@mui/material/Alert';
@@ -63,41 +63,65 @@ const FormularioPosts = () => {
     }
 
     return (
-        <div>
-            {parametros.id ? (
-                <h1>Editar Post</h1>
-            ) : (
-                <h1>Criar Novo Post</h1>
-            )}
-            <form onSubmit={handleSubmit}>
-                <TextField value={titulo}
-                    onChange={evento => setTitulo(evento.target.value)}
-                    label="Título"
-                    variant="outlined"
-                    fullWidth margin="normal" />
-                <TextField value={conteudo}
-                    onChange={evento => setConteudo(evento.target.value)}
-                    label="Conteúdo"
-                    variant="outlined"
-                    fullWidth margin="normal"
-                    multiline rows={4} />
-                <TextField value={autor}
-                    onChange={evento => setAutor(evento.target.value)}
-                    label="Autor"
-                    variant="outlined"
-                    fullWidth margin="normal" />
+        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
+            <Box sx={{ width: '100%', maxWidth: 800, padding: 2, borderRadius: 2, boxShadow: 3 }}>
                 {parametros.id ? (
-                    <Button type="submit" variant="contained" color="primary">Salvar Alterações</Button>
+                    <Typography variant="h4" component="h1" gutterBottom>
+                        Editar Post
+                    </Typography>
                 ) : (
-                    <Button type="submit" variant="contained" color="primary">Criar Post</Button>
+                    <Typography variant="h4" component="h1" gutterBottom>
+                        Criar Novo Post
+                    </Typography>
                 )}
-            </form>
-            {sucesso && (
-                <Alert severity="success" style={{ marginTop: '20px' }}>
-                    {parametros.id ? "Post editado com sucesso!" : "Post criado com sucesso!"}
-                </Alert>
-            )}
-        </div>
+                <Box component="form" onSubmit={handleSubmit}>
+                    <TextField
+                        value={titulo}
+                        onChange={evento => setTitulo(evento.target.value)}
+                        label="Título"
+                        variant="outlined"
+                        required
+                        fullWidth margin="normal" />
+                    <TextField
+                        value={conteudo}
+                        onChange={evento => setConteudo(evento.target.value)}
+                        label="Conteúdo"
+                        variant="outlined"
+                        required
+                        fullWidth margin="normal"
+                        multiline rows={4} />
+                    <TextField
+                        value={autor}
+                        onChange={evento => setAutor(evento.target.value)}
+                        label="Autor"
+                        variant="outlined"
+                        required
+                        fullWidth margin="normal" />
+                    {parametros.id ? (
+                        <Button
+                            type="submit"
+                            variant="contained"
+                            color="primary"
+                            fullWidth>
+                            Salvar Alterações
+                        </Button>
+                    ) : (
+                        <Button
+                            type="submit"
+                            variant="contained"
+                            color="primary"
+                            fullWidth>
+                            Criar Post
+                        </Button>
+                    )}
+                </Box>
+                {sucesso && (
+                    <Alert severity="success" style={{ marginTop: '20px' }}>
+                        {parametros.id ? "Post editado com sucesso!" : "Post criado com sucesso!"}
+                    </Alert>
+                )}
+            </Box>
+        </Box>
     );
 }
 export default FormularioPosts;

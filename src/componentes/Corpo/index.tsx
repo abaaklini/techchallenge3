@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
+import { Box, Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
 import { Link } from 'react-router';
 
 interface IPostProps {
@@ -24,10 +24,12 @@ export const CorpoPrincipal = () => {
 
 
     return (
-        <div className="container">
-            <h1>Página Principal</h1>
+        <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+            <Typography variant="h4" component="h1" gutterBottom>
+                Página Principal
+            </Typography>
             <ListaDePosts posts={posts} />
-        </div>
+        </Box>
     );
 }
 
@@ -45,10 +47,12 @@ export const CorpoPrincipalDashboard = () => {
 
 
     return (
-        <div className="container">
-            <h1>Dashboard</h1>
+        <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+            <Typography variant="h4" component="h1" gutterBottom>
+                Dashboard
+            </Typography>
             <ListaDePostsDashboard posts={posts} />
-        </div>
+        </Box>
     );
 }
 
@@ -109,7 +113,7 @@ export const PostDashboard = (post: IPostProps) => {
 
 export const ListaDePosts = ({ posts }: { posts: IPostProps[] }) => {
     return (
-        <div className="lista-de-posts">
+        <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
             <TableContainer component={Paper}>
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
@@ -132,13 +136,13 @@ export const ListaDePosts = ({ posts }: { posts: IPostProps[] }) => {
                     </TableBody>
                 </Table>
             </TableContainer>
-        </div>
+        </Box>
     );
 }
 
 export const ListaDePostsDashboard = ({ posts }: { posts: IPostProps[] }) => {
     return (
-        <div className="lista-de-posts">
+        <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
             <TableContainer component={Paper}>
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
@@ -163,6 +167,6 @@ export const ListaDePostsDashboard = ({ posts }: { posts: IPostProps[] }) => {
                     </TableBody>
                 </Table>
             </TableContainer>
-        </div>
+        </Box>
     );
 }

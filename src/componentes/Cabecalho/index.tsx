@@ -1,49 +1,83 @@
+import { Box, TextField } from '@mui/material';
 import Button from '@mui/material/Button';
 
 const isLoggedIn = false; // Simulação de estado de login
 
 const LoginForm = () => {
     return (
-        <div>
-            <form>
-                <input type="text" placeholder="Usuário" />
-                <input type="password" placeholder="Senha" />
-                <button type="submit">Entrar</button>
-            </form>
-        </div>
+        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <Box component={'form'} sx={{ display: 'flex', alignItems: 'center' }}>
+                <TextField
+                    label="Usuário"
+                    variant="outlined"
+                    required
+                    fullWidth
+                    margin="normal"
+                    sx={{ marginBottom: 2 }}
+                />
+                <TextField
+                    label="Senha"
+                    variant="outlined"
+                    type="password"
+                    required
+                    fullWidth
+                    margin="normal"
+                    sx={{ marginBottom: 2 }}
+                />
+                <Button
+                    variant="contained"
+                    color="primary"
+                    type="submit">
+                    Entrar
+                </Button>
+            </Box>
+        </Box>
     );
 }
 
 const CampoDeBusca = () => {
     return (
-        <input type="text" placeholder="Pesquisar..." />
+        <Box sx={{ marginTop: 2 }}>
+            <TextField
+                label="Pesquisar"
+                variant="outlined"
+                size="small"
+                sx={{ marginRight: 2 }}
+            />
+            <Button
+                variant="contained"
+                color="primary">
+                Pesquisar
+            </Button>
+        </Box>
     );
 }
 
 const AcessoProfessor = () => {
     return (
-        <div>
-            <Button variant="contained">Área do Professor</Button>
-        </div>
+        <Box sx={{ marginTop: 2 }}>
+            <Button variant="contained" color="primary">Área do Professor</Button>
+            <Button variant="outlined" color="secondary" sx={{ marginLeft: 2 }}>Sair</Button>
+        </Box>
     );
 }
 
 const Cabecalho = () => {
     return (
-        <>
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', padding: 2, backgroundColor: '#f5f5f5' }}>
             Blog da Turma
-            <div>
-                <div>
+            <Box sx={{ display: 'flex', flexDirection: "column", justifyContent: "center" }}>
+                <Box sx={{ display: 'flex', alignItems: 'center' }}>
                     {isLoggedIn ? (
                         <AcessoProfessor />
                     ) : (
                         <LoginForm />
                     )}
-                </div>
+                </Box>
                 <CampoDeBusca />
-            </div>
+            </Box>
 
-        </>
+        </Box>
     );
 };
 

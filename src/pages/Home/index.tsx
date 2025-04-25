@@ -1,17 +1,20 @@
 import Cabecalho from "../../componentes/Cabecalho"
 import Rodape from "../../componentes/Rodape"
 import { CorpoPrincipal } from "../../componentes/Corpo"
-import { Link } from "react-router"
+import { Box } from "@mui/material"
 
 function App() {
 
   return (
-    <>
-      <Cabecalho />
-      <Link to="/read">Read</Link>
-      <CorpoPrincipal />
-      <Rodape />
-    </>
+    <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+      <Box sx={{ flexGrow: 1 }}>
+        <Cabecalho />
+        <CorpoPrincipal />
+      </Box>
+      <Box sx={{ flexShrink: 0 }}>
+        <Rodape />
+      </Box>
+    </Box>
   )
 }
 
