@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Box, Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
+import { Box, Button, Container, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
 import { Link } from 'react-router';
 
 interface IPostProps {
@@ -25,10 +25,12 @@ export const CorpoPrincipal = () => {
 
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-            <Typography variant="h4" component="h1" gutterBottom>
-                Página Principal
-            </Typography>
-            <ListaDePosts posts={posts} />
+            <Container component={Paper} sx={{ padding: 2, marginTop: 2, marginBottom: 2, borderRadius: 2, boxShadow: 3 }}>
+                <Typography variant="h4" component="h1" gutterBottom>
+                    Página Principal
+                </Typography>
+                <ListaDePosts posts={posts} />
+            </Container>
         </Box>
     );
 }
@@ -48,10 +50,12 @@ export const CorpoPrincipalDashboard = () => {
 
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-            <Typography variant="h4" component="h1" gutterBottom>
-                Dashboard
-            </Typography>
-            <ListaDePostsDashboard posts={posts} />
+            <Container component={Paper} sx={{ padding: 2, marginTop: 2, marginBottom: 2, borderRadius: 2, boxShadow: 3 }}>
+                <Typography variant="h4" component="h1" gutterBottom>
+                    Dashboard
+                </Typography>
+                <ListaDePostsDashboard posts={posts} />
+            </Container>
         </Box>
     );
 }

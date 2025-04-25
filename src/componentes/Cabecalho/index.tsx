@@ -1,14 +1,15 @@
-import { AppBar, Box, Container, TextField, Toolbar, Typography } from '@mui/material';
+import { Box, TextField } from '@mui/material';
 import Button from '@mui/material/Button';
 
-const isLoggedIn = false; // Simulação de estado de login
+//const isLoggedIn = false; // Simulação de estado de login
 
-const LoginForm = () => {
+export const LoginForm = () => {
     return (
         <Box>
             <TextField
                 label="Usuário"
                 variant="outlined"
+                color="secondary"
                 required
                 size="small"
                 sx={{ marginRight: 2 }}
@@ -16,6 +17,7 @@ const LoginForm = () => {
             <TextField
                 label="Senha"
                 variant="outlined"
+                color="secondary"
                 type="password"
                 required
                 size="small"
@@ -23,7 +25,7 @@ const LoginForm = () => {
             />
             <Button
                 variant="contained"
-                color="primary"
+                color="secondary"
                 sx={{ marginRight: 2 }}
                 type="submit">
                 Entrar
@@ -32,56 +34,66 @@ const LoginForm = () => {
     );
 }
 
-const CampoDeBusca = () => {
+//const CampoDeBusca = () => {
+//    return (
+//        <Box>
+//            <TextField
+//                label="Pesquisar"
+//                variant="outlined"
+//                size="small"
+//                sx={{ marginRight: 2 }}
+//            />
+//            <Button
+//                variant="contained"
+//                color="primary">
+//                Pesquisar
+//            </Button>
+//        </Box>
+//    );
+//}
+
+export const AcessoProfessor = () => {
     return (
         <Box>
-            <TextField
-                label="Pesquisar"
+            <Button
+                variant="contained"
+                size="small"
+                sx={{ marginRight: 2 }}
+                color="secondary">
+                Área do Professor
+            </Button>
+            <Button
                 variant="outlined"
                 size="small"
                 sx={{ marginRight: 2 }}
-            />
-            <Button
-                variant="contained"
-                color="primary">
-                Pesquisar
+                color="secondary">
+                Sair
             </Button>
         </Box>
     );
 }
 
-const AcessoProfessor = () => {
-    return (
-        <Box>
-            <Button variant="contained" color="primary">Área do Professor</Button>
-            <Button variant="outlined" color="secondary">Sair</Button>
-        </Box>
-    );
-}
-
-const Cabecalho = () => {
-    return (
-        <>
-            <AppBar position="static">
-                <Container maxWidth="xl">
-                    <Toolbar>
-                        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                            Blog da Turma
-                        </Typography>
-                        <CampoDeBusca />
-                        <Box sx={{ display: 'flex', flexGrow: 1, justifyContent: 'flex-end', alignItems: 'center' }}>
-                            {isLoggedIn ? (
-                                <AcessoProfessor />
-                            ) : (
-                                <LoginForm />
-                            )}
-                        </Box>
-
-                    </Toolbar>
-                </Container>
-            </AppBar>
-        </>
-    );
-};
-
-export default Cabecalho;
+//const Cabecalho = () => {
+//    return (
+//        <>
+//            <AppBar position="static">
+//                <Container maxWidth="xl">
+//                    <Toolbar>
+//                        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+//                            Blog da Turma
+//                        </Typography>
+//                        <CampoDeBusca />
+//                        <Box sx={{ display: 'flex', flexGrow: 1, justifyContent: 'flex-end', alignItems: 'center' }}>
+//                            {isLoggedIn ? (
+//                                <AcessoProfessor />
+//                            ) : (
+//                                <LoginForm />
+//                            )}
+//                        </Box>
+//
+//                    </Toolbar>
+//                </Container>
+//            </AppBar>
+//        </>
+//    );
+//};
