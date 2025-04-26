@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import { AcessoProfessor, LoginForm } from './index.tsx';
+import { Link } from 'react-router';
 
 const isLoggedIn = false; // Simulação de estado de login
 
@@ -62,7 +63,9 @@ export default function SearchAppBar() {
                         component="div"
                         sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
                     >
-                        Blog da Turma
+                        <Link to={`/`}>
+                            Blog da Turma
+                        </Link>
                     </Typography>
                     <Search>
                         <SearchIconWrapper>
@@ -74,7 +77,7 @@ export default function SearchAppBar() {
                         />
                     </Search>
                     <Box sx={{ display: 'flex', flexGrow: 1, justifyContent: 'flex-end', alignItems: 'center' }}>
-                        {isLoggedIn ? (
+                        {!isLoggedIn ? (
                             <AcessoProfessor />
                         ) : (
                             <LoginForm />

@@ -25,7 +25,7 @@ createRoot(document.getElementById('root')!).render(
         <CssBaseline enableColorScheme />
         <Routes>
           <Route path="/" element={<App />} />
-          <Route path="/read" element={<Read />} />
+          <Route path="/read/:id" element={<Read />} />
           <Route path="/dashboard/posts" element={<Dashboard />} />
           <Route path="/dashboard/posts/new" element={<Create />} />
           <Route path="/dashboard/posts/:id" element={<Create />} />

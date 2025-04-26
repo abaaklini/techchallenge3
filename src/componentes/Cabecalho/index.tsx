@@ -1,5 +1,6 @@
 import { Box, TextField } from '@mui/material';
 import Button from '@mui/material/Button';
+import { Link } from 'react-router';
 
 //const isLoggedIn = false; // Simulação de estado de login
 
@@ -55,13 +56,15 @@ export const LoginForm = () => {
 export const AcessoProfessor = () => {
     return (
         <Box>
-            <Button
-                variant="contained"
-                size="small"
-                sx={{ marginRight: 2 }}
-                color="secondary">
-                Área do Professor
-            </Button>
+            <Link to={`/dashboard/posts`}>
+                <Button
+                    variant="contained"
+                    size="small"
+                    sx={{ marginRight: 2 }}
+                    color="secondary">
+                    Área do Professor
+                </Button>
+            </Link>
             <Button
                 variant="outlined"
                 size="small"
