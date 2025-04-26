@@ -1,4 +1,5 @@
 import SearchAppBar from "../../componentes/Cabecalho/SearchAppBar"
+import { CorpoLeitura } from "../../componentes/Corpo"
 import Rodape from "../../componentes/Rodape"
 
 function Read() {
@@ -6,6 +7,7 @@ function Read() {
     return (
         <>
             <SearchAppBar />
+            <CorpoLeitura />
             <Rodape />
         </>
     )
