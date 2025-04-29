@@ -1,3 +1,4 @@
+import React, { useState } from 'react'; // Import useState
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -53,6 +54,17 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function SearchAppBar() {
+    const [searchTerm, setSearchTerm] = useState(''); // 1. State for search term
+
+    const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => { // 2. Handler for input change
+        setSearchTerm(event.target.value);
+    };
+
+    const handleSearchSubmit = (event: React.FormEvent<HTMLFormElement>) => { // 3. Handler for form submit
+        event.preventDefault(); // Prevent default form submission behavior
+        console.log('Search submitted:', searchTerm);
+    };
+
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
@@ -68,13 +80,18 @@ export default function SearchAppBar() {
                         </Link>
                     </Typography>
                     <Search>
-                        <SearchIconWrapper>
-                            <SearchIcon />
-                        </SearchIconWrapper>
-                        <StyledInputBase
-                            placeholder="Search…"
-                            inputProps={{ 'aria-label': 'search' }}
-                        />
+                        {/* 4. Wrap in a form and add onSubmit */}
+                        <form onSubmit={handleSearchSubmit}>
+                            <SearchIconWrapper>
+                                <SearchIcon />
+                            </SearchIconWrapper>
+                            <StyledInputBase
+                                placeholder="Search…"
+                                inputProps={{ 'aria-label': 'search' }}
+                                value={searchTerm} // 5. Bind value to state
+                                onChange={handleSearchChange} // 6. Update state on change
+                            />
+                        </form>
                     </Search>
                     <Box sx={{ display: 'flex', flexGrow: 1, justifyContent: 'flex-end', alignItems: 'center' }}>
                         {!isLoggedIn ? (
