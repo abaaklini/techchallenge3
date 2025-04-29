@@ -121,7 +121,7 @@ export const CorpoPrincipalSearch = (q: { query: string }) => {
                         Resultados da Busca
                     </Typography>
                 </Box>
-                <ListaDePostsDashboard posts={posts} />
+                <ListaDePosts posts={posts} />
             </Container>
         </Box>
     );
