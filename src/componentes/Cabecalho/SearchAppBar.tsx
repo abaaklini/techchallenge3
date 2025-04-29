@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import { AcessoProfessor, LoginForm } from './index.tsx';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 
 const isLoggedIn = false; // Simulação de estado de login
 
@@ -55,6 +55,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export default function SearchAppBar() {
     const [searchTerm, setSearchTerm] = useState(''); // 1. State for search term
+    const navigate = useNavigate(); // 2. Get navigate function
 
     const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => { // 2. Handler for input change
         setSearchTerm(event.target.value);
@@ -62,7 +63,10 @@ export default function SearchAppBar() {
 
     const handleSearchSubmit = (event: React.FormEvent<HTMLFormElement>) => { // 3. Handler for form submit
         event.preventDefault(); // Prevent default form submission behavior
-        console.log('Search submitted:', searchTerm);
+        if (searchTerm.trim()) { // Only navigate if searchTerm is not empty
+            // 3. Navigate to search results page with query parameter
+            navigate(`/search?q=${encodeURIComponent(searchTerm.trim())}`);
+        }
     };
 
     return (

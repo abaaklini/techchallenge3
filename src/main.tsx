@@ -6,6 +6,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import App from './pages/Home/index.tsx'
 import Read from './pages/Read/index.tsx'
 import Dashboard from './pages/Dashboard/index.tsx';
+import SearchResult from './pages/Search/index.tsx';
 import Create from './pages/Create/index.tsx';
 
 const theme = createTheme({
@@ -26,6 +27,7 @@ createRoot(document.getElementById('root')!).render(
         <Routes>
           <Route path="/" element={<App />} />
           <Route path="/read/:id" element={<Read />} />
+          <Route path="/search" element={<SearchResult />} />
           <Route path="/dashboard/posts" element={<Dashboard />} />
           <Route path="/dashboard/posts/new" element={<Create />} />
           <Route path="/dashboard/posts/:id" element={<Create />} />

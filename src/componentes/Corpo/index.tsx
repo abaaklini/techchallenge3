@@ -98,6 +98,35 @@ export const CorpoPrincipalDashboard = () => {
     );
 }
 
+export const CorpoPrincipalSearch = (q: { query: string }) => {
+    const [posts, setPosts] = useState<IPostProps[]>([]);
+    useEffect(() => {
+        if (!q.query) {
+            return;
+        }
+        axios.get<IPostProps[]>(`/api/posts/search?q=${q.query}`)
+            .then((response) => {
+                setPosts(response.data);
+            })
+            .catch((error) => {
+                console.error("Erro ao buscar os posts:", error);
+            })
+    }, [q.query]);
+
+    return (
+        <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+            <Container component={Paper} sx={{ padding: 2, marginTop: 2, marginBottom: 2, borderRadius: 2, boxShadow: 3 }}>
+                <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <Typography variant="h4" component="h1" gutterBottom>
+                        Resultados da Busca
+                    </Typography>
+                </Box>
+                <ListaDePostsDashboard posts={posts} />
+            </Container>
+        </Box>
+    );
+}
+
 export const Post = (post: IPostProps) => {
 
     return (
