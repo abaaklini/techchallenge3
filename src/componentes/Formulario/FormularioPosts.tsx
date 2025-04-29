@@ -65,6 +65,11 @@ const FormularioPosts = () => {
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
             <Box sx={{ width: '100%', maxWidth: 800, padding: 2, borderRadius: 2, boxShadow: 3 }}>
+                {sucesso && (
+                    <Alert severity="success" style={{ margin: '20px' }}>
+                        {parametros.id ? "Post editado com sucesso!" : "Post criado com sucesso!"}
+                    </Alert>
+                )}
                 {parametros.id ? (
                     <Typography variant="h4" component="h1" gutterBottom>
                         Editar Post
@@ -115,11 +120,6 @@ const FormularioPosts = () => {
                         </Button>
                     )}
                 </Box>
-                {sucesso && (
-                    <Alert severity="success" style={{ marginTop: '20px' }}>
-                        {parametros.id ? "Post editado com sucesso!" : "Post criado com sucesso!"}
-                    </Alert>
-                )}
             </Box>
         </Box>
     );
