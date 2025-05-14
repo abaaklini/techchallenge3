@@ -8,13 +8,20 @@ const FormularioPosts = () => {
 
     const parametros = useParams();
 
+    type PostResponse = {
+        titulo: string;
+        conteudo: string;
+        autor: string;
+    };
+
     useEffect(() => {
         if (parametros.id) {
             axios.get(`/api/posts/${parametros.id}`)
                 .then((response) => {
-                    setTitulo(response.data.titulo);
-                    setConteudo(response.data.conteudo);
-                    setAutor(response.data.autor);
+                    const data = response.data as PostResponse;
+                    setTitulo(data.titulo);
+                    setConteudo(data.conteudo);
+                    setAutor(data.autor);
                 })
                 .catch((error) => {
                     console.error("Erro ao buscar o post:", error);
