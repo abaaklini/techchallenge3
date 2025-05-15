@@ -8,6 +8,11 @@ import Read from './pages/Read/index.tsx'
 import Dashboard from './pages/Dashboard/index.tsx';
 import SearchResult from './pages/Search/index.tsx';
 import Create from './pages/Create/index.tsx';
+import { AuthProvider } from "./contexts/AuthContext";
+import ProtectedRoute from "./contexts/ProtectedRoute";
+import LoginPage from "./pages/Login";
+
+
 
 const theme = createTheme({
   palette: {
@@ -23,15 +28,30 @@ createRoot(document.getElementById('root')!).render(
   <ThemeProvider theme={theme}>
     <StrictMode>
       <BrowserRouter>
-        <CssBaseline enableColorScheme />
-        <Routes>
-          <Route path="/" element={<App />} />
-          <Route path="/read/:id" element={<Read />} />
-          <Route path="/search" element={<SearchResult />} />
-          <Route path="/dashboard/posts" element={<Dashboard />} />
-          <Route path="/dashboard/posts/new" element={<Create />} />
-          <Route path="/dashboard/posts/:id" element={<Create />} />
-        </Routes>
+        <AuthProvider>
+          <CssBaseline enableColorScheme />
+          <Routes>
+            <Route path="/" element={<App />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/read/:id" element={<Read />} />
+            <Route path="/search" element={<SearchResult />} />
+            <Route path="/dashboard/posts" element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            } />
+            <Route path="/dashboard/posts/new" element={
+              <ProtectedRoute>
+                <Create />
+              </ProtectedRoute>
+            } />
+            <Route path="/dashboard/posts/:id" element={
+              <ProtectedRoute>
+                <Create />
+              </ProtectedRoute>
+            } />
+          </Routes>
+        </AuthProvider>
       </BrowserRouter>
     </StrictMode>
   </ThemeProvider>

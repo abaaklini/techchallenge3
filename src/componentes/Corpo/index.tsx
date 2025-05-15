@@ -149,8 +149,15 @@ export const Post = (post: IPostProps) => {
 export const PostDashboard = (post: IPostProps) => {
 
     const excluir = (post: IPostProps) => {
+        const token = localStorage.getItem("token");
+
         if (window.confirm("Você tem certeza que deseja excluir este post?")) {
-            axios.delete(`/api/posts/${post._id}`)
+            axios.delete(`/api/posts/${post._id}`,
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                })
                 .then((response) => {
                     console.log("Post excluído com sucesso:", response.data);
                     window.location.reload();

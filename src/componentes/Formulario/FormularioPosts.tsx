@@ -36,14 +36,21 @@ const FormularioPosts = () => {
 
     const handleSubmit = (evento: React.FormEvent<HTMLFormElement>) => {
         evento.preventDefault();
+        const token = localStorage.getItem("token");
 
         if (parametros.id) {
             // Editar post existente
-            axios.put(`/api/posts/${parametros.id}`, {
-                titulo: titulo,
-                conteudo: conteudo,
-                autor: autor
-            })
+            axios.put(`/api/posts/${parametros.id}`,
+                {
+                    titulo: titulo,
+                    conteudo: conteudo,
+                    autor: autor
+                },
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    }
+                })
                 .then((response) => {
                     setSucesso(true);
                     console.log("Post editado com sucesso:", response.data);
@@ -54,11 +61,17 @@ const FormularioPosts = () => {
             return;
         } else {
             // Criar novo post
-            axios.post("/api/posts/", {
-                titulo: titulo,
-                conteudo: conteudo,
-                autor: autor
-            })
+            axios.post("/api/posts/",
+                {
+                    titulo: titulo,
+                    conteudo: conteudo,
+                    autor: autor
+                },
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    }
+                })
                 .then((response) => {
                     setSucesso(true);
                     console.log("Post criado com sucesso:", response.data);
