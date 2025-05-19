@@ -23,7 +23,6 @@ const IconWrapper = styled.div<{ hidden: boolean }>`
 
 const SearchWrapper = styled.div`
   position: relative;
-  width: 90%;
   margin: 2rem auto;
 
   display: flex;
