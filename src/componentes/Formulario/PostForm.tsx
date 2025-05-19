@@ -1,4 +1,6 @@
-import { Box, Button, TextField, Typography, Alert } from "@mui/material";
+import { Box, Typography, Alert } from "@mui/material";
+import Button from "../Botao";
+import TextField from "../CampoTexto";
 import { PostFormProps } from "../../types/post";
 
 export const PostForm = ({
