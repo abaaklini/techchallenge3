@@ -1,6 +1,6 @@
-import { TableRow, TableCell } from '@mui/material';
-import { Link } from 'react-router';
-import IPostProps from '../../types/IPostProps';
+import { TableRow, TableCell } from "@mui/material";
+import { Link } from "react-router";
+import { IPostProps } from "../../types/post";
 
 export const Post = (post: IPostProps) => (
   <TableRow key={post._id}>
