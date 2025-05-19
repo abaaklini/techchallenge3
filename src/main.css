@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Azuis */
+  --Primary-900: #30437D;
+  --Primary-500: #5395EA;
+  --Primary-300: #BBCBFB;
+  --Primary-200: #D7E1FE;
+  --Primary-100: #EBF0FF;
+
+  /* Cinzas */
+  --Gray-900: #101828;
+  --Gray-500: #667085;
+  --Gray-300: #D0D5DD;
+
+  /* Outras cores */
+  --White: #FFFFFF;
+  --Yellow: #F7C960;
+  --Green: #28A745;
+
+  /* Tipografia */
+  --font-family: 'Inter', sans-serif;
+}
+
+/* H1 */
+.h1 {
+  color: var(--Primary-900);
+  font-family: var(--font-family);
+  font-size: 3rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 2.5rem; /* 83.333% */
+}
+
+@media (max-width: 768px) {
+  .h1 {
+    font-size: 2.25rem;
+    line-height: 2.25rem;
+  }
+}
+
+/* H2 Bold */
+.h2-bold {
+  color: var(--Gray-900);
+  font-family: var(--font-family);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+@media (max-width: 768px) {
+  .h2-bold {
+    font-size: 1.25rem;
+  }
+}
+
+/* H2 Regular */
+.h2-regular {
+  color: var(--Gray-900);
+  font-family: var(--font-family);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.51875rem; /* 101.25% */
+}
+
+@media (max-width: 768px) {
+  .h2-regular {
+    font-size: 1.25rem;
+    line-height: 1.4rem;
+  }
+}
+
+/* H3 */
+.h3 {
+  color: var(--Primary-500);
+  font-family: var(--font-family);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.36875rem; /* 121.667% */
+}
+
+@media (max-width: 768px) {
+  .h3 {
+    font-size: 1rem;
+    line-height: 1.25rem;
+  }
+}
+
+/* Paragraph */
+.p {
+  color: #000;
+  font-family: var(--font-family);
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.2125rem; /* 121.25% */
+}
+
+/* Paragraph Bold */
+.p-bold {
+  color: #000;
+  font-family: var(--font-family);
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.2125rem; /* 121.25% */
+}
+
+/* Caption - Medium */
+.caption-medium {
+  color: var(--Gray-900);
+  font-family: var(--font-family);
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1rem; /* 114.286% */
+}
+
+/* Caption - Regular */
+.caption-regular {
+  color: var(--Gray-500);
+  font-family: var(--font-family);
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1rem; /* 114.286% */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url('/assets/BG.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  font-family: sans-serif;
+}

@@ -1,4 +1,4 @@
-import SearchAppBar from "../../componentes/Cabecalho/SearchAppBar"
+import SearchAppBar from "../../componentes/Cabecalho"
 import { CorpoLeitura } from "../../componentes/Corpo"
 import Rodape from "../../componentes/Rodape"
 

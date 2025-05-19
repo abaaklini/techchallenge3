@@ -1,6 +1,6 @@
 import Rodape from "../../componentes/Rodape"
-import FormularioPosts from "../../componentes/Formulario/FormularioPosts"
-import SearchAppBar from "../../componentes/Cabecalho/SearchAppBar"
+import SearchAppBar from "../../componentes/Cabecalho"
+import FormularioPosts from "../../componentes/Formulario"
 
 function Create() {
 

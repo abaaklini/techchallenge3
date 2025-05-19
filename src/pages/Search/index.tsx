@@ -1,7 +1,7 @@
 import Rodape from "../../componentes/Rodape"
 import { CorpoPrincipalSearch } from "../../componentes/Corpo"
 import { Box } from "@mui/material"
-import SearchAppBar from "../../componentes/Cabecalho/SearchAppBar"
+import SearchAppBar from "../../componentes/Cabecalho"
 import { useSearchParams } from "react-router"
 
 function SearchResult() {

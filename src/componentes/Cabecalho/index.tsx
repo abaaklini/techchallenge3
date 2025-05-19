@@ -1,102 +1,48 @@
-import { Box, TextField } from '@mui/material';
-import Button from '@mui/material/Button';
-import { Link } from 'react-router';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router';
+import Box from '@mui/material/Box';
+import AcessoProfessor from '../AcessoProfessor'
+import LoginForm from '../LoginForm'
+import SearchBar from '../CampoBusca';
+import StyledLogo from '../HeroLogo'
 
-//const isLoggedIn = false; // Simulação de estado de login
+const isLoggedIn = true; // Simulação de estado de login
 
-export const LoginForm = () => {
-    return (
-        <Box>
-            <TextField
-                label="Usuário"
-                variant="outlined"
-                color="secondary"
-                required
-                size="small"
-                sx={{ marginRight: 2 }}
-            />
-            <TextField
-                label="Senha"
-                variant="outlined"
-                color="secondary"
-                type="password"
-                required
-                size="small"
-                sx={{ marginRight: 2 }}
-            />
-            <Button
-                variant="contained"
-                color="secondary"
-                sx={{ marginRight: 2 }}
-                type="submit">
-                Entrar
-            </Button>
-        </Box>
-    );
+export default function SearchAppBar() {
+  const [searchTerm, setSearchTerm] = useState('');
+  const navigate = useNavigate();
+
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const handleSearchSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (searchTerm.trim()) {
+      navigate(`/search?q=${encodeURIComponent(searchTerm.trim())}`);
+    }
+  };
+
+  return (
+    <Box>
+    <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+        {!isLoggedIn ? <AcessoProfessor /> : <LoginForm />}
+    </Box>
+
+    <Box>
+        <Link to={`/`}>
+        <StyledLogo
+            src="/imagens/LOGO.svg"
+            alt="Logo do Blog da Turma"
+        />
+        </Link>
+    </Box>
+
+    <SearchBar
+        value={searchTerm}
+        onChange={handleSearchChange}
+        onSubmit={handleSearchSubmit}
+    />
+    </Box>
+  );
 }
-
-//const CampoDeBusca = () => {
-//    return (
-//        <Box>
-//            <TextField
-//                label="Pesquisar"
-//                variant="outlined"
-//                size="small"
-//                sx={{ marginRight: 2 }}
-//            />
-//            <Button
-//                variant="contained"
-//                color="primary">
-//                Pesquisar
-//            </Button>
-//        </Box>
-//    );
-//}
-
-export const AcessoProfessor = () => {
-    return (
-        <Box>
-            <Link to={`/dashboard/posts`}>
-                <Button
-                    variant="contained"
-                    size="small"
-                    sx={{ marginRight: 2 }}
-                    color="secondary">
-                    Área do Professor
-                </Button>
-            </Link>
-            <Button
-                variant="outlined"
-                size="small"
-                sx={{ marginRight: 2 }}
-                color="secondary">
-                Sair
-            </Button>
-        </Box>
-    );
-}
-
-//const Cabecalho = () => {
-//    return (
-//        <>
-//            <AppBar position="static">
-//                <Container maxWidth="xl">
-//                    <Toolbar>
-//                        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-//                            Blog da Turma
-//                        </Typography>
-//                        <CampoDeBusca />
-//                        <Box sx={{ display: 'flex', flexGrow: 1, justifyContent: 'flex-end', alignItems: 'center' }}>
-//                            {isLoggedIn ? (
-//                                <AcessoProfessor />
-//                            ) : (
-//                                <LoginForm />
-//                            )}
-//                        </Box>
-//
-//                    </Toolbar>
-//                </Container>
-//            </AppBar>
-//        </>
-//    );
-//};
