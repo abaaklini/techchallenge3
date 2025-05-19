@@ -124,4 +124,5 @@ const FormularioPosts = () => {
         </Box>
     );
 }
+
 export default FormularioPosts;

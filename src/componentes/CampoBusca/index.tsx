@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import {InputBase} from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
@@ -62,6 +62,7 @@ const StyledInput = styled(InputBase)`
 
 const SearchBar: React.FC<SearchBarProps> = ({ value, onChange, onSubmit }) => {
   const isTyping = value.trim().length > 0;
+  const [isFocused, setIsFocused] = useState(false);
 
   return (
     <SearchWrapper>
@@ -70,10 +71,12 @@ const SearchBar: React.FC<SearchBarProps> = ({ value, onChange, onSubmit }) => {
           <SearchIcon />
         </IconWrapper>
         <StyledInput
-          placeholder="Search…"
+          placeholder={isFocused ? '' : 'Pesquisar...'}
           inputProps={{ 'aria-label': 'search' }}
           value={value}
           onChange={onChange}
+          onFocus={() => setIsFocused(true)}
+          onBlur={() => setIsFocused(false)}
         />
       </form>
     </SearchWrapper>

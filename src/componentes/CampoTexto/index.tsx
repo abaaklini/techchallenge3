@@ -32,15 +32,14 @@ const TextField = styled(MUITextField)`
 
     .MuiInputLabel-root {
       color: var(--Gray-500);
-      font-size: 0.8rem;
+      font-size: 1rem;
       background-color: var(--White);
-      top: -15%;
+      top: -20%;
 
       &.Mui-focused {
         color: var(--Primary-500);
         background-color: var(--White);
         font-size: 1rem;
-        top: 0%;
       }
 
       &.Mui-error {
