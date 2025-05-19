@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Box, Button, Container, Paper, Typography } from "@mui/material";
+import { Box, Container, Paper, Typography } from "@mui/material";
+import Button from '../Botao'
 import { Link } from "react-router";
 import { ListaDePostsDashboard } from "./ListaDePostsDashboard";
 import { IPostProps } from "../../types/post";

@@ -1,4 +1,5 @@
-import { TableRow, TableCell, Button } from "@mui/material";
+import { TableRow, TableCell } from "@mui/material";
+import Button from "../Botao";
 import { Link } from "react-router";
 import axios from "axios";
 import { IPostProps } from "../../types/post";

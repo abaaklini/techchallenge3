@@ -6,7 +6,7 @@ import LoginForm from '../LoginForm'
 import SearchBar from '../CampoBusca';
 import StyledLogo from '../HeroLogo'
 
-const isLoggedIn = true; // Simulação de estado de login
+const isLoggedIn = false; // Simulação de estado de login
 
 export default function SearchAppBar() {
   const [searchTerm, setSearchTerm] = useState('');
