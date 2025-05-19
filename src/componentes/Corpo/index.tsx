@@ -3,13 +3,7 @@ import axios from 'axios';
 import { Box, Button, Container, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
 import { Link } from 'react-router';
 import { useParams } from "react-router";
-
-interface IPostProps {
-    titulo: string;
-    conteudo: string;
-    autor: string;
-    _id: string;
-}
+import IPostProps from '../../types/IPostProps';
 
 export const CorpoPrincipal = () => {
     const [posts, setPosts] = useState<IPostProps[]>([]);
