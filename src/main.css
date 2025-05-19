@@ -129,13 +129,23 @@
   line-height: 1rem; /* 114.286% */
 }
 
-body {
+.bgPattern {
+  position: relative;
   margin: 0;
   padding: 0;
-  background-image: url('/assets/BG.svg');
+  min-height: 100vh;
+  font-family: sans-serif;
+  z-index: 0;
+}
+
+.bgPattern::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url('/imagens/BG.svg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  min-height: 100vh;
-  font-family: sans-serif;
+  opacity: 0.3;
+  z-index: -1;
 }

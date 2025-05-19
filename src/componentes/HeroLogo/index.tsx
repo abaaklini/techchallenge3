@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const StyledLogo = styled.img`
   width: 60%;
   display: block;
-  margin: 0 auto;
+  margin: 2rem auto;
   transition: transform 0.3s ease, opacity 0.3s ease;
 
   &:hover {

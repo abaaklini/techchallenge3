@@ -7,6 +7,7 @@ const TextField = styled(MUITextField)`
     padding: 0.5rem;
     align-items: top;
     flex: 1 0 0;
+    background-color: var(--White);
 
     border-radius: 0.5rem;
     border: 1px solid var(--Gray-300);

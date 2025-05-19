@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import InputBase from '../CampoTexto';
+import {InputBase} from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 
 type SearchBarProps = {
@@ -9,9 +9,21 @@ type SearchBarProps = {
   onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
 };
 
+const IconWrapper = styled.div<{ hidden: boolean }>`
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  padding: 1rem;
+  
+  display: flex;
+  align-items: center;
+  z-index: 1;
+`;
+
 const SearchWrapper = styled.div`
   position: relative;
-  width: 100%;
+  width: 90%;
   margin: 2rem auto;
 
   display: flex;
@@ -20,25 +32,15 @@ const SearchWrapper = styled.div`
 
   @media (min-width: 600px) {
     margin-left: 1rem;
-    width: auto;
   }
-`;
-
-const IconWrapper = styled.div<{ hidden: boolean }>`
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  pointer-events: none;
-
-  opacity: ${({ hidden }) => (hidden ? 0 : 1)};
-  
-  display: flex;
-  align-items: center;
 `;
 
 const StyledInput = styled(InputBase)`
   color: inherit;
   width: 100%;
+  border: 1px solid var(--Gray-300);
+  background-color: var(--White);
+  border-radius: 0.5rem;
 
   .MuiInputBase-input {
     padding: 0.5rem 0.5rem 0.5rem calc(1em + 2rem);
