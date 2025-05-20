@@ -2,6 +2,7 @@ import Rodape from "../../componentes/Rodape"
 import { CorpoPrincipalDashboard } from "../../componentes/Corpo"
 import { Box } from "@mui/material"
 import SearchAppBar from "../../componentes/Cabecalho"
+// import '../../main.css'
 
 function Dashboard() {
 

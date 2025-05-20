@@ -1,41 +1,37 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Card, CardContent, Typography } from '@mui/material';
+// components/PostCard.tsx
+import { Card, CardContent, Typography, Paper } from "@mui/material";
+import { Link } from "react-router";
+import { IPostProps } from "../../types/post";
 
-type CustomCardProps = {
-  title: string;
-  content: string;
-};
+const PostCard = ({ post }: { post: IPostProps }) => (
+  <Card
+    component={Paper}
+    sx={{
+      height: "100%",
+      minHeight: 220,
+      display: "flex",
+      flexDirection: "column",
+      p: 3,
+    }}
+  >
+    <CardContent>
+      <Typography
+        variant="h5"
+        component={Link}
+        to={`/read/${post._id}`}
+        gutterBottom
+        sx={{ textDecoration: "none", color: "inherit" }}
+      >
+        {post.titulo}
+      </Typography>
+      <Typography variant="body1" color="text.secondary" paragraph>
+        {post.conteudo}
+      </Typography>
+      <Typography variant="caption" color="text.secondary">
+        Autor: {post.autor}
+      </Typography>
+    </CardContent>
+  </Card>
+);
 
-const StyledCard = styled(Card)`
-  max-width: 400px;
-  margin: 2rem auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
-
-  &:hover {
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
-  }
-`;
-
-const StyledTitle = styled(Typography)`
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-`;
-
-const CustomCard: React.FC<CustomCardProps> = ({ title, content }) => {
-  return (
-    <StyledCard>
-      <CardContent>
-        <StyledTitle>{title}</StyledTitle>
-        <Typography variant="body2" color="textSecondary">
-          {content}
-        </Typography>
-      </CardContent>
-    </StyledCard>
-  );
-};
-
-export default CustomCard;
+export default PostCard;

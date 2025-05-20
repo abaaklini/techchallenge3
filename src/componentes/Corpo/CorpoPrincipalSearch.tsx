@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Box, Container, Paper, Typography } from "@mui/material";
-import { ListaDePosts } from "./ListaDePosts";
+import { ListaDePosts } from "../Corpo/ListaDePosts";
 import { IPostProps } from "../../types/post";
 
 export const CorpoPrincipalSearch = ({ query }: { query: string }) => {

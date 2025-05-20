@@ -8,7 +8,7 @@ import SearchResult from './pages/Search';
 import Create from './pages/Create';
 import { ThemeProvider, CssBaseline } from '@mui/material';
 import theme from './theme';
-// import './main.css'
+// import './main.css';
 
 createRoot(document.getElementById('root')!).render(
   <ThemeProvider theme={theme}>

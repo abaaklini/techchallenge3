@@ -18,22 +18,24 @@ export const PostDashboard = (post: IPostProps) => {
   };
 
   return (
-    <TableRow key={post._id}>
-      <TableCell>{post.titulo}</TableCell>
-      <TableCell>{post.conteudo}</TableCell>
-      <TableCell>{post.autor}</TableCell>
-      <TableCell>
-        <Link to={`/dashboard/posts/${post._id}`}>
-          <Button variant="contained" color="primary">
-            Editar
+    <>   
+      <TableRow key={post._id}>
+        <TableCell>{post.titulo}</TableCell>
+        <TableCell>{post.conteudo}</TableCell>
+        <TableCell>{post.autor}</TableCell>
+        <TableCell>
+          <Link to={`/dashboard/posts/${post._id}`}>
+            <Button variant="contained" color="primary">
+              Editar
+            </Button>
+          </Link>
+        </TableCell>
+        <TableCell>
+          <Button variant="contained" color="error" onClick={() => excluir(post)}>
+            Excluir
           </Button>
-        </Link>
-      </TableCell>
-      <TableCell>
-        <Button variant="contained" color="error" onClick={() => excluir(post)}>
-          Excluir
-        </Button>
-      </TableCell>
-    </TableRow>
+        </TableCell>
+      </TableRow>
+    </>
   );
 };

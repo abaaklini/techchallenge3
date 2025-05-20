@@ -2,7 +2,7 @@ import { Box } from "@mui/material"
 import Rodape from "../../componentes/Rodape"
 import { CorpoPrincipal } from "../../componentes/Corpo"
 import SearchAppBar from "../../componentes/Cabecalho"
-import '../../main.css'
+// import '../../main.css'
 
 function App() {
 

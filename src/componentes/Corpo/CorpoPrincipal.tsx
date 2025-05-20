@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Box, Container, Paper, Typography } from "@mui/material";
-import { ListaDePosts } from "./ListaDePosts";
+import { Box, Container } from "@mui/material";
+import { ListaDePosts } from "../Corpo/ListaDePosts";
 import { IPostProps } from "../../types/post";
 
 export const CorpoPrincipal = () => {
@@ -15,22 +15,10 @@ export const CorpoPrincipal = () => {
   }, []);
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
-      <Container
-        component={Paper}
-        sx={{
-          padding: 2,
-          marginTop: 2,
-          marginBottom: 2,
-          borderRadius: 2,
-          boxShadow: 3,
-        }}
-      >
-        <Typography variant="h4" component="h1" gutterBottom>
-          Página Principal
-        </Typography>
-        <ListaDePosts posts={posts} />
-      </Container>
-    </Box>
+      <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
+        <Container maxWidth="lg">
+          <ListaDePosts posts={posts} />
+        </Container>
+      </Box>
   );
 };

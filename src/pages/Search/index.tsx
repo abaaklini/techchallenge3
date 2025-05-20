@@ -3,6 +3,7 @@ import { CorpoPrincipalSearch } from "../../componentes/Corpo"
 import { Box } from "@mui/material"
 import SearchAppBar from "../../componentes/Cabecalho"
 import { useSearchParams } from "react-router"
+// import '../../main.css'
 
 function SearchResult() {
     const [searchParams] = useSearchParams();
