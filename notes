@@ -1,0 +1,22 @@
+export MONGO_INITDB_ROOT_USERNAME=mongo  
+export MONGO_INITDB_ROOT_PASSWORD=mongo
+export MONGO_HOST=mongodb  
+export MONGO_PORT=27017  
+export MONGO_USER=mongo  
+export MONGO_PASS=mongo
+export JWT_SECRET=segredo123
+
+ "email": "usuario@email.com",
+  "password": "senha123"
+
+
+curl -X 'POST' \
+  'http://localhost:3000/posts' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MjhiNjU5ZWE3MDhiODllNGUwNzljMSIsImVtYWlsIjoidXN1YXJpbzNAZW1haWwuY29tIiwiaWF0IjoxNzQ3NDk4NTk3LCJleHAiOjE3NDc1ODQ5OTd9.t-IqY6aFzWUy2V6M2aoOC7TANNJY5dkZ-goFV_WNgT0' \
+  -d '{
+  "titulo": "Dica de Gramática",
+  "conteudo": "A crase é um acento grave indicativo de crase.",
+  "autor": "João da Silva"
+}'

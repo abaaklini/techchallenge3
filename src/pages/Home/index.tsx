@@ -1,7 +1,7 @@
 import Rodape from "../../componentes/Rodape"
-import { CorpoPrincipal } from "../../componentes/Corpo"
 import { Box } from "@mui/material"
 import SearchAppBar from "../../componentes/Cabecalho/SearchAppBar"
+import { CorpoPrincipalComponent } from "../../main/factories/CorpoPrincipalComponent"
 
 function App() {
 
@@ -9,7 +9,7 @@ function App() {
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <Box sx={{ flexGrow: 1 }}>
         <SearchAppBar />
-        <CorpoPrincipal />
+        <CorpoPrincipalComponent />
       </Box>
       <Box sx={{ flexShrink: 0 }}>
         <Rodape />

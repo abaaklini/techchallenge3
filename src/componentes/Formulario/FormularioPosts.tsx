@@ -10,7 +10,7 @@ const FormularioPosts = () => {
 
     useEffect(() => {
         if (parametros.id) {
-            axios.get(`/api/posts/${parametros.id}`)
+            axios.get(`/posts/${parametros.id}`)
                 .then((response) => {
                     setTitulo(response.data.titulo);
                     setConteudo(response.data.conteudo);
@@ -32,7 +32,7 @@ const FormularioPosts = () => {
 
         if (parametros.id) {
             // Editar post existente
-            axios.put(`/api/posts/${parametros.id}`, {
+            axios.put(`/posts/${parametros.id}`, {
                 titulo: titulo,
                 conteudo: conteudo,
                 autor: autor
@@ -47,7 +47,7 @@ const FormularioPosts = () => {
             return;
         } else {
             // Criar novo post
-            axios.post("/api/posts/", {
+            axios.post("/posts/", {
                 titulo: titulo,
                 conteudo: conteudo,
                 autor: autor

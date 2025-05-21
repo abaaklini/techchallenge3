@@ -3,24 +3,26 @@ import axios from 'axios';
 import { Box, Button, Container, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
 import { Link } from 'react-router';
 import { useParams } from "react-router";
+import { IPostProps } from '../../domain/models';
+import { GetPostById, GetPosts } from '../../domain';
+import { useDispatch } from 'react-redux';
+import { PostRepository } from '../../infra/repository';
 
-interface IPostProps {
-    titulo: string;
-    conteudo: string;
-    autor: string;
-    _id: string;
+type CorpoPrincipalProps = {
+    postRepository : GetPosts
 }
-
-export const CorpoPrincipal = () => {
+export const CorpoPrincipal = ({ postRepository }: CorpoPrincipalProps ) => {
     const [posts, setPosts] = useState<IPostProps[]>([]);
+    const dispatch = useDispatch();
+
     useEffect(() => {
-        axios.get<IPostProps[]>('/api/posts/')
-            .then((response) => {
-                setPosts(response.data);
-            })
-            .catch((error) => {
-                console.error("Erro ao buscar os posts:", error);
-            })
+        postRepository.get().then(response => {
+            setPosts(response)
+        }).catch(error => {
+            console.error("Erro ao buscar os postsssss:", error);
+            dispatch({ type: 'error', payload: true } );
+        })
+  
     }, []);
 
 
@@ -38,17 +40,18 @@ export const CorpoPrincipal = () => {
 
 export const CorpoLeitura = () => {
     const [post, setPost] = useState<IPostProps>();
-    const parametros = useParams<{ id: string }>();
+    const parametros = useParams<{ id: string }>() as any
+    const postRepository: GetPostById = new PostRepository();
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        axios.get<IPostProps>(`/api/posts/${parametros.id}`)
-            .then((response) => {
-                setPost(response.data);
-            })
-            .catch((error) => {
-                console.error("Erro ao buscar os posts:", error);
-            })
-    });
+      postRepository.getById(parametros!.id).then(response => {
+            setPost(response)
+        }).catch(error => {
+            console.error("Erro ao buscar os postsssss:", error);
+            dispatch({ type: 'error', payload: true } );
+        })
+    }, []);
 
 
     return (
@@ -71,9 +74,9 @@ export const CorpoLeitura = () => {
 export const CorpoPrincipalDashboard = () => {
     const [posts, setPosts] = useState<IPostProps[]>([]);
     useEffect(() => {
-        axios.get<IPostProps[]>('/api/posts/')
+        axios.get<IPostProps[]>('/posts/')
             .then((response) => {
-                setPosts(response.data);
+                setPosts(Array.isArray(response.data) ? response.data : []);
             })
             .catch((error) => {
                 console.error("Erro ao buscar os posts:", error);
@@ -104,9 +107,9 @@ export const CorpoPrincipalSearch = (q: { query: string }) => {
         if (!q.query) {
             return;
         }
-        axios.get<IPostProps[]>(`/api/posts/search?q=${q.query}`)
+        axios.get<IPostProps[]>(`/posts/search?q=${q.query}`)
             .then((response) => {
-                setPosts(response.data);
+                setPosts(Array.isArray(response.data) ? response.data : []);
             })
             .catch((error) => {
                 console.error("Erro ao buscar os posts:", error);
@@ -150,7 +153,7 @@ export const PostDashboard = (post: IPostProps) => {
 
     const excluir = (post: IPostProps) => {
         if (window.confirm("Você tem certeza que deseja excluir este post?")) {
-            axios.delete(`/api/posts/${post._id}`)
+            axios.delete(`/posts/${post._id}`)
                 .then((response) => {
                     console.log("Post excluído com sucesso:", response.data);
                     window.location.reload();
