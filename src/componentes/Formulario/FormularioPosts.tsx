@@ -8,13 +8,20 @@ const FormularioPosts = () => {
 
     const parametros = useParams();
 
+    type PostResponse = {
+        titulo: string;
+        conteudo: string;
+        autor: string;
+    };
+
     useEffect(() => {
         if (parametros.id) {
             axios.get(`/api/posts/${parametros.id}`)
                 .then((response) => {
-                    setTitulo(response.data.titulo);
-                    setConteudo(response.data.conteudo);
-                    setAutor(response.data.autor);
+                    const data = response.data as PostResponse;
+                    setTitulo(data.titulo);
+                    setConteudo(data.conteudo);
+                    setAutor(data.autor);
                 })
                 .catch((error) => {
                     console.error("Erro ao buscar o post:", error);
@@ -29,14 +36,21 @@ const FormularioPosts = () => {
 
     const handleSubmit = (evento: React.FormEvent<HTMLFormElement>) => {
         evento.preventDefault();
+        const token = localStorage.getItem("token");
 
         if (parametros.id) {
             // Editar post existente
-            axios.put(`/api/posts/${parametros.id}`, {
-                titulo: titulo,
-                conteudo: conteudo,
-                autor: autor
-            })
+            axios.put(`/api/posts/${parametros.id}`,
+                {
+                    titulo: titulo,
+                    conteudo: conteudo,
+                    autor: autor
+                },
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    }
+                })
                 .then((response) => {
                     setSucesso(true);
                     console.log("Post editado com sucesso:", response.data);
@@ -47,11 +61,17 @@ const FormularioPosts = () => {
             return;
         } else {
             // Criar novo post
-            axios.post("/api/posts/", {
-                titulo: titulo,
-                conteudo: conteudo,
-                autor: autor
-            })
+            axios.post("/api/posts/",
+                {
+                    titulo: titulo,
+                    conteudo: conteudo,
+                    autor: autor
+                },
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    }
+                })
                 .then((response) => {
                     setSucesso(true);
                     console.log("Post criado com sucesso:", response.data);
