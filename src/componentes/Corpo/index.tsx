@@ -48,7 +48,7 @@ export const CorpoLeitura = () => {
             .catch((error) => {
                 console.error("Erro ao buscar os posts:", error);
             })
-    });
+    }, []);
 
 
     return (

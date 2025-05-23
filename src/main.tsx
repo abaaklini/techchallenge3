@@ -11,7 +11,8 @@ import Create from './pages/Create/index.tsx';
 import { AuthProvider } from "./contexts/AuthContext";
 import ProtectedRoute from "./contexts/ProtectedRoute";
 import LoginPage from "./pages/Login";
-
+//@ts-ignore
+import * as httpClient from './services/api.tsx';
 
 
 const theme = createTheme({
