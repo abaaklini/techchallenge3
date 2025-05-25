@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import { getPost, createPost, updatePost } from "./postService";
+import { getPost } from "./postService";
 import { IPostProps } from "../../types/post";
+import axios from "axios";
 
 type PostFormData = Omit<IPostProps, "_id">;
 
@@ -25,17 +26,49 @@ export const usePostForm = (id?: string) => {
     setFormData((prev) => ({ ...prev, [key]: value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    try {
-      if (id) {
-        await updatePost(id, formData);
-      } else {
-        await createPost(formData);
-      }
-      setSuccess(true);
-    } catch (err) {
-      console.error("Erro ao salvar o post:", err);
+  const handleSubmit = (evento: React.FormEvent<Element>) => {
+    evento.preventDefault();
+    const token = localStorage.getItem("token");
+
+    if (id) {
+      // Editar post existente
+      axios
+        .put(
+          `/api/posts/${id}`,
+          formData,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        )
+        .then((response) => {
+          setSuccess(true);
+          console.log("Post editado com sucesso:", response.data);
+        })
+        .catch((error) => {
+          console.error("Erro ao editar o post:", error);
+        });
+      return;
+    } else {
+      // Criar novo post
+      axios
+        .post(
+          "/api/posts/",
+          formData,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        )
+        .then((response) => {
+          setSuccess(true);
+          console.log("Post criado com sucesso:", response.data);
+        })
+        .catch((error) => {
+          console.error("Erro ao criar o post:", error);
+        });
     }
   };
 

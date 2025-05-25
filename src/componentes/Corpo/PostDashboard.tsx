@@ -6,9 +6,15 @@ import { IPostProps } from "../../types/post";
 
 export const PostDashboard = (post: IPostProps) => {
   const excluir = (post: IPostProps) => {
+    const token = localStorage.getItem("token");
+
     if (window.confirm("Você tem certeza que deseja excluir este post?")) {
       axios
-        .delete(`/api/posts/${post._id}`)
+        .delete(`/api/posts/${post._id}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
         .then((response) => {
           console.log("Post excluído com sucesso:", response.data);
           window.location.reload();
@@ -18,7 +24,7 @@ export const PostDashboard = (post: IPostProps) => {
   };
 
   return (
-    <>   
+    <>
       <TableRow key={post._id}>
         <TableCell>{post.titulo}</TableCell>
         <TableCell>{post.conteudo}</TableCell>
@@ -31,7 +37,11 @@ export const PostDashboard = (post: IPostProps) => {
           </Link>
         </TableCell>
         <TableCell>
-          <Button variant="contained" color="error" onClick={() => excluir(post)}>
+          <Button
+            variant="contained"
+            color="error"
+            onClick={() => excluir(post)}
+          >
             Excluir
           </Button>
         </TableCell>

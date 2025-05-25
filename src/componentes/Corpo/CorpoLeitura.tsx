@@ -6,14 +6,17 @@ import { IPostProps } from "../../types/post";
 
 export const CorpoLeitura = () => {
   const [post, setPost] = useState<IPostProps>();
-  const { id } = useParams<{ id: string }>();
+  const parametros = useParams<{ id: string }>();
 
   useEffect(() => {
-    axios
-      .get<IPostProps>(`/api/posts/${id}`)
-      .then((response) => setPost(response.data))
-      .catch((error) => console.error("Erro ao buscar os posts:", error));
-  }, [id]);
+    axios.get<IPostProps>(`/api/posts/${parametros.id}`)
+        .then((response) => {
+            setPost(response.data);
+        })
+        .catch((error) => {
+            console.error("Erro ao buscar os posts:", error);
+        })
+}, []);
 
   return (
     <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
