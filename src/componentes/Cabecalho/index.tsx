@@ -6,7 +6,7 @@ import LoginForm from '../LoginForm'
 import SearchBar from '../CampoBusca';
 import StyledLogo from '../HeroLogo'
 
-const isLoggedIn = false; // Simulação de estado de login
+const isLoggedIn = localStorage.getItem('token') === typeof ('string');
 
 export default function SearchAppBar() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -25,24 +25,24 @@ export default function SearchAppBar() {
 
   return (
     <Box>
-    <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+      <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
         {!isLoggedIn ? <AcessoProfessor /> : <LoginForm />}
-    </Box>
+      </Box>
 
-    <Box>
+      <Box>
         <Link to={`/`}>
-        <StyledLogo
+          <StyledLogo
             src="/imagens/LOGO.svg"
             alt="Logo do Blog da Turma"
-        />
+          />
         </Link>
-    </Box>
+      </Box>
 
-    <SearchBar
+      <SearchBar
         value={searchTerm}
         onChange={handleSearchChange}
         onSubmit={handleSearchSubmit}
-    />
+      />
     </Box>
   );
 }
