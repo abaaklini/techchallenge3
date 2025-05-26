@@ -10,7 +10,7 @@ function SearchResult() {
     const queryParam = searchParams.get('q'); // Lê o parâmetro 'q'
 
     return (
-        <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+        <Box className='bgPattern' sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
             <Box sx={{ flexGrow: 1 }}>
                 <SearchAppBar />
                 <CorpoPrincipalSearch query={queryParam || ''} />

@@ -7,7 +7,7 @@ import SearchAppBar from "../../componentes/Cabecalho"
 function Dashboard() {
 
     return (
-        <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+        <Box className="bgPattern" sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
             <Box sx={{ flexGrow: 1 }}>
                 <SearchAppBar />
                 <CorpoPrincipalDashboard />

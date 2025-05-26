@@ -7,6 +7,7 @@ import {
   TableContainer,
   TableHead,
   TableRow,
+  Typography,
 } from "@mui/material";
 import { PostDashboard } from "./PostDashboard";
 import { IPostProps } from "../../types/post";
@@ -17,11 +18,21 @@ export const ListaDePostsDashboard = ({ posts }: { posts: IPostProps[] }) => (
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Título</TableCell>
-            <TableCell>Conteúdo</TableCell>
-            <TableCell>Autor</TableCell>
-            <TableCell>Editar</TableCell>
-            <TableCell>Excluir</TableCell>
+            <TableCell>
+              <Typography variant="body2">Título</Typography>
+            </TableCell>
+            <TableCell>
+              <Typography variant="body2">Conteúdo</Typography>
+            </TableCell>
+            <TableCell>
+              <Typography variant="body2">Autor</Typography>
+            </TableCell>
+            <TableCell>
+              <Typography variant="body2">Editar</Typography>
+            </TableCell>
+            <TableCell>
+              <Typography variant="body2">Excluir</Typography>
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Box, Container, Paper, Typography } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 import { ListaDePosts } from "../Corpo/ListaDePosts";
 import { IPostProps } from "../../types/post";
 
@@ -19,16 +19,14 @@ export const CorpoPrincipalSearch = ({ query }: { query: string }) => {
   return (
     <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
       <Container
-        component={Paper}
         sx={{
           padding: 2,
           marginTop: 2,
           marginBottom: 2,
           borderRadius: 2,
-          boxShadow: 3,
         }}
       >
-        <Typography variant="h4" component="h1" gutterBottom>
+        <Typography variant="h1" component="h1" gutterBottom>
           Resultados da Busca
         </Typography>
         <ListaDePosts posts={posts} />

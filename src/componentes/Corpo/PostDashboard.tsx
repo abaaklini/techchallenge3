@@ -1,4 +1,4 @@
-import { TableRow, TableCell } from "@mui/material";
+import { TableRow, TableCell, Typography } from "@mui/material";
 import Button from "../Botao";
 import { Link } from "react-router";
 import axios from "axios";
@@ -26,9 +26,15 @@ export const PostDashboard = (post: IPostProps) => {
   return (
     <>
       <TableRow key={post._id}>
-        <TableCell>{post.titulo}</TableCell>
-        <TableCell>{post.conteudo}</TableCell>
-        <TableCell>{post.autor}</TableCell>
+      <TableCell>
+        <Typography variant="body1">{post.titulo}</Typography>
+      </TableCell>
+      <TableCell>
+        <Typography variant="body1">{post.conteudo}</Typography>
+      </TableCell>
+      <TableCell>
+        <Typography variant="body1">{post.autor}</Typography>
+      </TableCell>
         <TableCell>
           <Link to={`/dashboard/posts/${post._id}`}>
             <Button variant="contained" color="primary">
@@ -38,7 +44,7 @@ export const PostDashboard = (post: IPostProps) => {
         </TableCell>
         <TableCell>
           <Button
-            variant="contained"
+            variant="outlined"
             color="error"
             onClick={() => excluir(post)}
           >

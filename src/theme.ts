@@ -33,7 +33,7 @@ const theme = createTheme({
     h1: {
       fontSize: '3rem',
       fontWeight: 600,
-      lineHeight: '2.5rem',
+      lineHeight: '3.5rem',
       color: '#30437D',
     },
     h2: {
@@ -51,13 +51,13 @@ const theme = createTheme({
     body1: {
       fontSize: '1rem',
       fontWeight: 400,
-      lineHeight: '1.2125rem',
+      lineHeight: '1.5rem',
       color: '#000',
     },
     body2: {
       fontSize: '1rem',
       fontWeight: 700,
-      lineHeight: '1.2125rem',
+      lineHeight: '1.5rem',
       color: '#000',
     },
     caption: {

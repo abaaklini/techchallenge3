@@ -25,7 +25,20 @@ export const PostForm = ({
         maxWidth: 800,
         padding: 2,
         borderRadius: 2,
+      }}
+    >
+      <Typography variant="h1" component="h1" align="left">
+        {isEditMode ? "Editar post" : "Novo post"}
+      </Typography>
+    </Box>
+    <Box
+      sx={{
+        width: "100%",
+        maxWidth: 800,
+        padding: 2,
+        borderRadius: 2,
         boxShadow: 3,
+        backgroundColor: "#fff",
       }}
     >
       {success && (
@@ -35,9 +48,6 @@ export const PostForm = ({
             : "Post criado com sucesso!"}
         </Alert>
       )}
-      <Typography variant="h4" component="h1" gutterBottom>
-        {isEditMode ? "Editar Post" : "Criar Novo Post"}
-      </Typography>
       <Box component="form" onSubmit={onSubmit}>
         <TextField
           value={formData.titulo}

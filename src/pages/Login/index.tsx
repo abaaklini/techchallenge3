@@ -27,7 +27,7 @@ export default function LoginPage() {
     };
 
     return (
-        <Container maxWidth="sm">
+        <Container className='bgPattern' maxWidth="sm">
             <Paper elevation={3} sx={{ padding: 4, marginTop: 8 }}>
                 <Typography variant="h5" align="center" gutterBottom>
                     Login

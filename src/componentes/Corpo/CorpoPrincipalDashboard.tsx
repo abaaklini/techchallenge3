@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Box, Container, Paper, Typography } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 import Button from '../Botao'
 import { Link } from "react-router";
 import { ListaDePostsDashboard } from "./ListaDePostsDashboard";
@@ -19,13 +19,11 @@ export const CorpoPrincipalDashboard = () => {
   return (
     <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
       <Container
-        component={Paper}
         sx={{
           padding: 2,
           marginTop: 2,
           marginBottom: 2,
           borderRadius: 2,
-          boxShadow: 3,
         }}
       >
         <Box
@@ -35,7 +33,7 @@ export const CorpoPrincipalDashboard = () => {
             alignItems: "center",
           }}
         >
-          <Typography variant="h4" component="h1" gutterBottom>
+          <Typography variant="h1" component="h1" gutterBottom>
             Administração de Posts
           </Typography>
           <Link to={`/dashboard/posts/new`}>

@@ -12,6 +12,7 @@ const PostCard = ({ post }: { post: IPostProps }) => (
       display: "flex",
       flexDirection: "column",
       p: 3,
+      width: 345,
     }}
   >
     <CardContent>

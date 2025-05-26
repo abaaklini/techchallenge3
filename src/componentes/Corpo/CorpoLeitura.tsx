@@ -30,14 +30,14 @@ export const CorpoLeitura = () => {
           boxShadow: 3,
         }}
       >
-        <Typography variant="h4" component="h1" gutterBottom>
+        <Typography variant="h1" component="h1" gutterBottom>
           {post?.titulo}
         </Typography>
-        <Typography variant="h4" component="h1" gutterBottom>
-          {post?.conteudo}
+        <Typography variant="caption" component="p" gutterBottom>
+          Autor: {post?.autor}
         </Typography>
-        <Typography variant="h4" component="h1" gutterBottom>
-          {post?.autor}
+        <Typography variant="body1" component="p" gutterBottom>
+          {post?.conteudo}
         </Typography>
       </Container>
     </Box>
