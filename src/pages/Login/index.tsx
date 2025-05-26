@@ -19,7 +19,7 @@ export default function LoginPage() {
             const response = await axios.post<ILoginResponse>("/api/login", { email, password });
             const { token } = response.data;
             login(token);
-            navigate("/posts");
+            navigate("/dashboard/posts");
         } catch (error) {
             console.error("Erro ao buscar os posts:", error);
             alert("Login falhou");

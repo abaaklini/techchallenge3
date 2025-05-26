@@ -2,11 +2,9 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router';
 import Box from '@mui/material/Box';
 import AcessoProfessor from '../AcessoProfessor'
-import LoginForm from '../LoginForm'
 import SearchBar from '../CampoBusca';
 import StyledLogo from '../HeroLogo'
 
-const isLoggedIn = localStorage.getItem('token') === typeof ('string');
 
 export default function SearchAppBar() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -26,7 +24,7 @@ export default function SearchAppBar() {
   return (
     <Box>
       <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-        {!isLoggedIn ? <AcessoProfessor /> : <LoginForm />}
+        <AcessoProfessor />
       </Box>
 
       <Box>

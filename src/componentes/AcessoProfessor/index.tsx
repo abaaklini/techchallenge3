@@ -4,6 +4,12 @@ import { Link } from "react-router";
 import "../../main.css";
 
 const AcessoProfessor = () => {
+  function logoutHandler(event: React.MouseEvent<HTMLButtonElement>): void {
+    event.preventDefault();
+    localStorage.removeItem("token");
+    window.location.href = "/";
+  }
+
   return (
     <Box
       sx={{
@@ -20,7 +26,7 @@ const AcessoProfessor = () => {
         <Button>Área do Professor</Button>
       </Link>
 
-      <Button variant="outlined">Sair</Button>
+      <Button variant="outlined" onClick={logoutHandler}>Sair</Button>
     </Box>
   );
 };
