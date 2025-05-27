@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   frontend:
-    image:techchallengefiap/techchallenge3-frontend
+    image: techchallengefiap/techchallenge3-frontend
     container_name: frontend-blog-escola-publica
     restart: always
     ports:
