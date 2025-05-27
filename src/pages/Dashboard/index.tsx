@@ -1,12 +1,13 @@
 import Rodape from "../../componentes/Rodape"
 import { CorpoPrincipalDashboard } from "../../componentes/Corpo"
 import { Box } from "@mui/material"
-import SearchAppBar from "../../componentes/Cabecalho/SearchAppBar"
+import SearchAppBar from "../../componentes/Cabecalho"
+// import '../../main.css'
 
 function Dashboard() {
 
     return (
-        <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+        <Box className="bgPattern" sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
             <Box sx={{ flexGrow: 1 }}>
                 <SearchAppBar />
                 <CorpoPrincipalDashboard />

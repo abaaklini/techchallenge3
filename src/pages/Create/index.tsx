@@ -1,15 +1,17 @@
 import Rodape from "../../componentes/Rodape"
-import FormularioPosts from "../../componentes/Formulario/FormularioPosts"
-import SearchAppBar from "../../componentes/Cabecalho/SearchAppBar"
+import SearchAppBar from "../../componentes/Cabecalho"
+import { FormularioPosts } from "../../componentes/Formulario"
+import { Box } from "@mui/material"
+// import '../../main.css'
 
 function Create() {
 
     return (
-        <>
+        <Box className='bgPattern' sx={{ flexGrow: 1 }}>
             <SearchAppBar />
-            <FormularioPosts />
+            <FormularioPosts/>
             <Rodape />
-        </>
+        </Box>
     )
 }
 

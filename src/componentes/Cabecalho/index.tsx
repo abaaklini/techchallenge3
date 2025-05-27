@@ -1,57 +1,46 @@
-import { Box, TextField } from '@mui/material';
-import Button from '@mui/material/Button';
-import { Link } from 'react-router';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router';
+import Box from '@mui/material/Box';
+import AcessoProfessor from '../AcessoProfessor'
+import SearchBar from '../CampoBusca';
+import StyledLogo from '../HeroLogo'
 
-export const LoginForm = () => {
-    return (
-        <Box>
-            <TextField
-                label="Usuário"
-                variant="outlined"
-                color="secondary"
-                required
-                size="small"
-                sx={{ marginRight: 2 }}
-            />
-            <TextField
-                label="Senha"
-                variant="outlined"
-                color="secondary"
-                type="password"
-                required
-                size="small"
-                sx={{ marginRight: 2 }}
-            />
-            <Button
-                variant="contained"
-                color="secondary"
-                sx={{ marginRight: 2 }}
-                type="submit">
-                Entrar
-            </Button>
-        </Box>
-    );
-}
 
-export const AcessoProfessor = () => {
-    return (
-        <Box>
-            <Link to={`/dashboard/posts`}>
-                <Button
-                    variant="contained"
-                    size="small"
-                    sx={{ marginRight: 2 }}
-                    color="secondary">
-                    Área do Professor
-                </Button>
-            </Link>
-            <Button
-                variant="outlined"
-                size="small"
-                sx={{ marginRight: 2 }}
-                color="secondary">
-                Sair
-            </Button>
-        </Box>
-    );
+export default function SearchAppBar() {
+  const [searchTerm, setSearchTerm] = useState('');
+  const navigate = useNavigate();
+
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const handleSearchSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (searchTerm.trim()) {
+      navigate(`/search?q=${encodeURIComponent(searchTerm.trim())}`);
+    }
+  };
+
+  return (
+    <Box>
+      <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+        <AcessoProfessor />
+      </Box>
+
+      <Box>
+        <Link to={`/`}>
+          <StyledLogo
+            src="/imagens/LOGO.svg"
+            alt="Logo do Blog da Turma"
+          />
+        </Link>
+      </Box>
+
+      <SearchBar
+        value={searchTerm}
+        onChange={handleSearchChange}
+        onSubmit={handleSearchSubmit}
+      />
+    </Box>
+  );
 }

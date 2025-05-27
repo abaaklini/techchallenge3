@@ -1,15 +1,16 @@
 import Rodape from "../../componentes/Rodape"
 import { CorpoPrincipalSearch } from "../../componentes/Corpo"
 import { Box } from "@mui/material"
-import SearchAppBar from "../../componentes/Cabecalho/SearchAppBar"
+import SearchAppBar from "../../componentes/Cabecalho"
 import { useSearchParams } from "react-router"
+// import '../../main.css'
 
 function SearchResult() {
     const [searchParams] = useSearchParams();
     const queryParam = searchParams.get('q'); // Lê o parâmetro 'q'
 
     return (
-        <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+        <Box className='bgPattern' sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
             <Box sx={{ flexGrow: 1 }}>
                 <SearchAppBar />
                 <CorpoPrincipalSearch query={queryParam || ''} />

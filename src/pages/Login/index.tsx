@@ -19,7 +19,7 @@ export default function LoginPage() {
             const response = await axios.post<ILoginResponse>("/api/login", { email, password });
             const { token } = response.data;
             login(token);
-            navigate("/posts");
+            navigate("/dashboard/posts");
         } catch (error) {
             console.error("Erro ao buscar os posts:", error);
             alert("Login falhou");
@@ -27,7 +27,7 @@ export default function LoginPage() {
     };
 
     return (
-        <Container maxWidth="sm">
+        <Container className='bgPattern' maxWidth="sm">
             <Paper elevation={3} sx={{ padding: 4, marginTop: 8 }}>
                 <Typography variant="h5" align="center" gutterBottom>
                     Login
