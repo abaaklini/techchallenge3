@@ -43,7 +43,7 @@ jobs:
       run: npm list        
     - name: Install dependencies
       run: npm install
-    - name: Run tests
+    - name: Build the app
       run: npm run build
     - name: Log in to Docker Hub
       uses: docker/login-action@v3
