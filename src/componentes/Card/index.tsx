@@ -7,7 +7,7 @@ const PostCard = ({ post }: { post: IPostProps }) => (
   <Card
     component={Paper}
     sx={{
-      height: "100%",
+      height: '100%',
       minHeight: 220,
       display: "flex",
       flexDirection: "column",
@@ -20,15 +20,39 @@ const PostCard = ({ post }: { post: IPostProps }) => (
         variant="h5"
         component={Link}
         to={`/read/${post._id}`}
-        gutterBottom
-        sx={{ textDecoration: "none", color: "inherit" }}
-      >
+        sx={{
+          textDecoration: "none",
+          color: "inherit",
+          display: "-webkit-box",
+          WebkitLineClamp: 5,
+          WebkitBoxOrient: "vertical",
+          overflow: "hidden",
+        }}>
         {post.titulo}
       </Typography>
-      <Typography variant="body1" color="text.secondary" paragraph>
+      <Typography
+        variant="body1"
+        color="text.secondary"
+        sx={{
+          flexGrow: 1,
+          mb: 2,
+          display: "-webkit-box",
+          WebkitLineClamp: 4,
+          WebkitBoxOrient: "vertical",
+          overflow: "hidden",
+        }}
+      >
         {post.conteudo}
       </Typography>
-      <Typography variant="caption" color="text.secondary">
+      <Typography
+        variant="caption"
+        color="text.secondary"
+        sx={{
+          mt: "auto",
+          whiteSpace: "normal",
+          wordBreak: "break-word",
+        }}
+      >
         Autor: {post.autor}
       </Typography>
     </CardContent>
