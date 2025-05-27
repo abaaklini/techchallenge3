@@ -26,15 +26,25 @@ export const PostDashboard = (post: IPostProps) => {
   return (
     <>
       <TableRow key={post._id}>
-      <TableCell>
-        <Typography variant="body1">{post.titulo}</Typography>
-      </TableCell>
-      <TableCell>
-        <Typography variant="body1">{post.conteudo}</Typography>
-      </TableCell>
-      <TableCell>
-        <Typography variant="body1">{post.autor}</Typography>
-      </TableCell>
+        <TableCell>
+          <Typography variant="body1">{post.titulo}</Typography>
+        </TableCell>
+        <TableCell>
+          <Typography
+            variant="body1"
+            sx={{
+              display: "-webkit-box",
+              WebkitLineClamp: 2,
+              WebkitBoxOrient: "vertical",
+              overflow: "hidden",
+            }}
+          >
+            {post.conteudo}
+          </Typography>
+        </TableCell>
+        <TableCell>
+          <Typography variant="body1">{post.autor}</Typography>
+        </TableCell>
         <TableCell>
           <Link to={`/dashboard/posts/${post._id}`}>
             <Button variant="contained" color="primary">
